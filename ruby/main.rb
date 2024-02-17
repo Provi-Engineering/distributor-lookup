@@ -16,7 +16,7 @@ require "sqlite3"
 
 class Distributor
   def initialize
-    @db_name = "retailer_distributors.db"
+    @db_name = "../retailer_distributors.db"
     @db = SQLite3::Database.new @db_name
     @db.results_as_hash = true
   end
