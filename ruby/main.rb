@@ -8,11 +8,13 @@
 # CREATE TABLE retailer_distributors (id int, retailer_id int, distributor_id int, account_number text);
 # CREATE TABLE users (id int, first_name text, last_name text);
 #
-# The output of this endpoint expects a list of distributors for a retailer the user belongs to
-# and the output should be in JSON format.
+# Refer to README.md for the contents of the database
+#
+# The following program will run but has areas for improvement.
+# The output of index is expected to be a list of distributors for an active retailer the user belongs to.
+# The output of index is expected to be in a JSON format.
 
 require "sqlite3"
-# require "pry"
 
 class Distributor
   def initialize
@@ -48,17 +50,19 @@ class Distributor
   end
 end
 
+distributor = Distributor.new
+
 # Have the output be in JSON format, Do we have relevant data for the endpoint?
-puts Distributor.new.index(1)
+puts distributor.index("1")
 
 # What happens if the input is not an id?
-#puts Distributor.new.index("a number")
+#puts distributor.index("user_1")
 
 # How do we protect against malicious input?
-#puts Distributor.new.index("1; SELECT * FROM users;--")
+#puts distributor.index("1; INSERT INTO users VALUES (100, 'New', 'User');--")
 
 # What if we only want user's with an admin role to view this?
-#puts Distributor.new.index(1)
-#puts Distributor.new.index(2)
+#puts distributor.index("1")
+#puts distributor.index("2")
 
 # Any other refactorings after above changes?
