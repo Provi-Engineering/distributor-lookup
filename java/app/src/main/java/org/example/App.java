@@ -15,17 +15,18 @@ The following program will run but has areas for improvement.
 The output of index is expected to be a list of distributors for an active retailer the user belongs to.
 The output of index is expected to be in a JSON format.
 */
+package org.example;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class Distributor {
-    private final String db_name = "../retailer_distributors.db";
+public class App {
+    private final String db_name = "./src/main/resources/retailer_distributors.db";
     private Connection db;
 
-    public Distributor() {
+    public App() {
         try {
             db = DriverManager.getConnection("jdbc:sqlite:" + db_name);
         } catch (Exception e) {
@@ -65,7 +66,7 @@ public class Distributor {
     }
 
     public static void main(String[] args) {
-        Distributor distributor = new Distributor();
+        App distributor = new App();
 
 
         // Have the output be in JSON format, Do we have relevant data for the endpoint?
