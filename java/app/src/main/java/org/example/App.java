@@ -73,7 +73,16 @@ public class App {
         ResultSet result = distributor.index("1");
         try {
             while (result.next()) {
+                System.out.println(result.getString("retailer_id"));
                 System.out.println(result.getString("retailer_name"));
+                System.out.println(result.getString("retailer_id"));
+                System.out.println(result.getString("retailer_name"));
+                System.out.println(result.getString("liquor_license"));
+                System.out.println(result.getString("account_number"));
+                System.out.println(result.getString("user_id"));
+                System.out.println(result.getString("user_role"));
+                System.out.println(result.getString("distributor_id"));
+                System.out.println(result.getString("distributor_name"));
             }
         } catch (Exception e) {
             e.printStackTrace();
